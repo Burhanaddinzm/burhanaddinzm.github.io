@@ -1,0 +1,1767 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burhanaddin Mirsadizada | Software & Infrastructure Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        color-scheme: dark light;
+        font-size: 100%;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Fira Mono", monospace;
+        background-color: #0d1117;
+        color: #c9d1d9;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2.5rem 0;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: 95%;
+        }
+      }
+
+      header {
+        border-bottom: 1px solid #30363d;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #58a6ff;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: #8b949e;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: #58a6ff;
+      }
+
+      section {
+        margin-bottom: 3.5rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        color: #58a6ff;
+        border-bottom: 1px solid #21262d;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .grid-2col {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 1.5rem;
+        transition: border-color 0.2s ease;
+      }
+
+      .card:hover {
+        border-color: #58a6ff;
+      }
+
+      .card h3 {
+        color: #f0f6fc;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .card ul {
+        padding-left: 1.2rem;
+      }
+
+      .card li {
+        list-style-type: disc;
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        background: #21262d;
+        color: #79c0ff;
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        border: 1px solid #30363d;
+      }
+
+      footer {
+        border-top: 1px solid #30363d;
+        padding-top: 1.5rem;
+        text-align: center;
+        color: #8b949e;
+        font-size: 0.85rem;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+
+      ul,
+      ol {
+        list-style: none;
+      }
+
+      .filmstrip {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        padding: 1.4rem 0.2rem 1.8rem;
+        scroll-snap-type: x proximity;
+      }
+
+      .filmstrip::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .filmstrip::-webkit-scrollbar-thumb {
+        background: #30363d;
+        border-radius: 4px;
+      }
+
+      .frame {
+        flex: 0 0 auto;
+        width: 230px;
+        margin-right: 14px;
+        scroll-snap-align: start;
+        cursor: pointer;
+        background: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 4px;
+        position: relative;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .frame:hover,
+      .frame:focus-visible {
+        transform: translateY(-6px);
+        border-color: #58a6ff;
+        outline: none;
+      }
+
+      .frame-sprockets {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 6px;
+      }
+
+      .frame-sprockets span {
+        width: 6px;
+        height: 6px;
+        background: #30363d;
+        border-radius: 1px;
+      }
+
+      .frame:hover .frame-sprockets span {
+        background: #58a6ff;
+      }
+
+      .frame-img-wrap {
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        margin: 0 6px;
+        background: #161b22;
+      }
+
+      .frame-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(45%) contrast(1.02);
+        transition:
+          filter 0.25s ease,
+          transform 0.4s ease;
+      }
+
+      .frame:hover .frame-img-wrap img {
+        filter: grayscale(0%) contrast(1);
+        transform: scale(1.06);
+      }
+
+      .frame-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 6px 10px 8px;
+        font-size: 0.72rem;
+        color: #8b949e;
+      }
+
+      .frame-meta .fnum {
+        color: #79c0ff;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(1, 4, 9, 0.92);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        padding: 2rem 1rem;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox-inner {
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lightbox-img-wrap {
+        width: 100%;
+        max-height: 68vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #30363d;
+        background: #000;
+      }
+
+      .lightbox-img-wrap img {
+        max-width: 100%;
+        max-height: 68vh;
+        object-fit: contain;
+      }
+
+      .lightbox-caption {
+        color: #c9d1d9;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        text-align: center;
+        max-width: 640px;
+      }
+
+      .lightbox-counter {
+        color: #8b949e;
+        font-size: 0.78rem;
+        margin-top: 0.4rem;
+      }
+
+      .lightbox-controls {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        pointer-events: none;
+        padding: 0 0.5rem;
+      }
+
+      .lb-btn {
+        pointer-events: auto;
+        background: #161b22;
+        border: 1px solid #30363d;
+        color: #c9d1d9;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lb-btn:hover {
+        border-color: #58a6ff;
+        color: #58a6ff;
+      }
+
+      .lb-close {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.6rem;
+        background: #161b22;
+        border: 1px solid #30363d;
+        color: #c9d1d9;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .lb-close:hover {
+        border-color: #ff7b72;
+        color: #ff7b72;
+      }
+
+      .term-hint {
+        font-size: 0.85rem;
+        color: #8b949e;
+        margin-bottom: 1rem;
+      }
+
+      .term-hint kbd {
+        background: #21262d;
+        border: 1px solid #30363d;
+        border-radius: 4px;
+        padding: 0.05rem 0.4rem;
+        color: #79c0ff;
+        font-family: inherit;
+      }
+
+      .terminal {
+        background: #010409;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      .terminal:focus-within {
+        border-color: #58a6ff;
+      }
+
+      .term-titlebar {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: #161b22;
+        border-bottom: 1px solid #30363d;
+        padding: 0.6rem 0.9rem;
+      }
+
+      .term-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .term-dot.red {
+        background: #ff5f56;
+      }
+      .term-dot.yellow {
+        background: #ffbd2e;
+      }
+      .term-dot.green {
+        background: #27c93f;
+      }
+
+      .term-titletext {
+        margin-left: 0.4rem;
+        color: #8b949e;
+        font-size: 0.85rem;
+      }
+
+      .term-body {
+        height: 420px;
+        overflow-y: auto;
+        padding: 1rem 1rem 0.5rem;
+        font-size: 0.9rem;
+        cursor: text;
+      }
+
+      .term-line {
+        white-space: pre-wrap;
+        margin-bottom: 0.15rem;
+      }
+
+      .term-line.prompt-line {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .term-user {
+        color: #7ee787;
+      }
+
+      .term-path {
+        color: #79c0ff;
+      }
+
+      .term-sep {
+        color: #8b949e;
+      }
+
+      .term-out {
+        color: #c9d1d9;
+      }
+
+      .term-dir {
+        color: #79c0ff;
+      }
+
+      .term-file {
+        color: #c9d1d9;
+      }
+
+      .term-err {
+        color: #ff7b72;
+      }
+
+      .term-muted {
+        color: #8b949e;
+      }
+
+      .term-heading {
+        color: #f0f6fc;
+        font-weight: 700;
+      }
+
+      .term-inputrow {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding-bottom: 0.3rem;
+      }
+
+      .term-inputrow input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #c9d1d9;
+        caret-color: #7ee787;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <nav class="nav-bar">
+          <a href="#" class="logo">burhanaddin.dev</a>
+          <div class="nav-links">
+            <a href="#about">/about</a>
+            <a href="#skills">/skills</a>
+            <a href="#deployments">/infrastructure</a>
+            <a href="#projects">/projects</a>
+            <a href="#open-source">/open-source</a>
+            <a href="#experience">/experience</a>
+            <a href="#life">/life</a>
+            <a href="#terminal">/terminal</a>
+          </div>
+        </nav>
+      </header>
+
+      <section>
+        <h1 style="color: #f0f6fc; font-size: 2rem; margin-bottom: 0.5rem">
+          Burhanaddin Mirsadizada
+        </h1>
+        <p style="color: #7ee787; font-weight: 500; margin-bottom: 1rem">
+          Software & Infrastructure Engineer
+        </p>
+        <p style="max-width: 750px; color: #8b949e">
+          Software Engineer with extensive experience building backend APIs and
+          managing custom Linux server deployments. Specializing in
+          containerized services, self-hosted infrastructure, local network
+          routing, and automated DevOps environments. Scroll down to
+          <a href="#terminal" style="color: #58a6ff">poke around a live shell</a
+          >.
+        </p>
+      </section>
+
+      <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="card">
+          <ul style="list-style-type: none; padding-left: 0">
+            <li style="margin-bottom: 0.8rem">
+              <strong style="color: #f0f6fc">> Engineering Background:</strong>
+              Software development focus on Node.js, .NET, and Python, with a
+              strong interest in low-level architecture and system stability.
+            </li>
+            <li style="margin-bottom: 0.8rem">
+              <strong style="color: #f0f6fc"
+                >> Systems & Architecture Focus:</strong
+              >
+              Actively learning and applying distributed systems patterns,
+              database schema design, and message queue management.
+            </li>
+            <li style="margin-bottom: 0.8rem">
+              <strong style="color: #f0f6fc"
+                >> Self-Hosted Infrastructure:</strong
+              >
+              Experienced in managing Linux homelabs and production servers,
+              configuring Nginx reverse proxies, DNS resolution, and Docker
+              containers.
+            </li>
+            <li>
+              <strong style="color: #f0f6fc">> Professional Path:</strong>
+              Contributing to government web services at MDDT Azerbaijan while
+              independently managing overall IT operations and infrastructure at
+              Vertus Engineering.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="grid-2col">
+          <div class="card">
+            <h3>Backend Engineering</h3>
+            <div class="tech-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">.NET / C#</span>
+              <span class="tag">ASP.NET Core MVC</span>
+              <span class="tag">FastAPI (Python)</span>
+              <span class="tag">PHP / Laravel</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Databases & Storage</h3>
+            <div class="tech-tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">MSSQL</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Prisma ORM</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>DevOps & System Admin</h3>
+            <div class="tech-tags">
+              <span class="tag">Linux Server Admin</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Docker Compose</span>
+              <span class="tag">Nginx Reverse Proxy</span>
+              <span class="tag">Dnsmasq</span>
+              <span class="tag">CI/CD Workflows</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Self-Hosted Services & Networking</h3>
+            <div class="tech-tags">
+              <span class="tag">Jellyfin Media Server</span>
+              <span class="tag">Open WebUI</span>
+              <span class="tag">Planka</span>
+              <span class="tag">Tailscale Mesh VPN</span>
+              <span class="tag">Local DNS Routing</span>
+              <span class="tag">Ollama Local LLMs</span>
+              <span class="tag">Virt-Manager / QEMU</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="deployments">
+        <h2 class="section-title">Linux Server Deployments & Infrastructure</h2>
+        <div class="grid-2col">
+          <div class="card">
+            <h3>Containerized Services Stack</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Deployment and maintenance of self-hosted services using Docker
+              and Docker Compose, managing isolated microservices, persistent
+              volume mounts, and automated updates.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Docker Compose</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Jellyfin & Distributed Media Encoding Pipeline</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Self-hosted Jellyfin media environment integrated with custom
+              transcode automation scripts and a distributed node-based encoding
+              cluster for maximum device compatibility.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Jellyfin</span>
+              <span class="tag">FFmpeg / Handbrake</span>
+              <span class="tag">Distributed Encoding</span>
+              <span class="tag">Bash / Python</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Open WebUI & Local AI Gateway</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Deployment of Open WebUI backed by Ollama and local LLM routers
+              for private, network-wide AI chat interfaces and custom model
+              orchestrations.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Open WebUI</span>
+              <span class="tag">Ollama</span>
+              <span class="tag">Local LLMs</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Planka Kanban Project Management</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Self-hosted Planka instance for agile project management, user
+              access control, task tracking, and database volume persistence
+              across teams.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Planka</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Docker Compose</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>DNS Resolution & Local Routing (Dnsmasq)</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Custom local DNS resolution and DHCP management utilizing Dnsmasq
+              for routing custom domains, local domain overrides, and LAN
+              service discovery.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Dnsmasq</span>
+              <span class="tag">DNS Routing</span>
+              <span class="tag">Networking</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Nginx Reverse Proxy & SSL Management</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Nginx configuration for web traffic proxying, SSL/TLS certificate
+              automation, web application routing, rate limiting, and domain
+              forwarding across local and cloud servers.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Nginx</span>
+              <span class="tag">Reverse Proxy</span>
+              <span class="tag">SSL / TLS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="grid-2col">
+          <div class="card">
+            <h3>License-to-PDF Converter Service</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Document rendering background service handling high transaction
+              volumes with an asynchronous queue setup.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Queue Systems</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Delayed Responses Reporting System</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Telemetry export tool configured with automated Docker
+              containerization, Nginx proxy, and simple CI/CD delivery.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Nginx</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Short Phone Numbers Registry System</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Multi-service government web tool incorporating contract workflows
+              and external payment gateway integrations.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Prisma</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="open-source">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid #21262d;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+          "
+        >
+          <h2
+            class="section-title"
+            style="border-bottom: none; margin-bottom: 0; padding-bottom: 0"
+          >
+            Open-Source & Personal Projects
+          </h2>
+          <a
+            href="https://github.com/Burhanaddinzm"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: #79c0ff; text-decoration: none; font-size: 0.9rem"
+            >github.com/Burhanaddinzm &rarr;</a
+          >
+        </div>
+        <div class="grid-2col">
+          <div class="card">
+            <h3>Maxmod (E-Commerce Platform)</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Full-featured .NET Core MVC e-commerce application developed as a
+              6-month intensive capstone project at Code Academy Azerbaijan
+              (awarded High Honor Diploma). Implements modular architecture with
+              Dependency Injection across vendor management, cart, order
+              processing, Braintree payment integration, and background hosted
+              services.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">ASP.NET Core MVC</span>
+              <span class="tag">C#</span>
+              <span class="tag">Braintree Payment</span>
+              <span class="tag">Background Services</span>
+              <span class="tag">Clean Architecture</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>ExposeMailbot</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              A .NET 8.0 utility that automates expose CLI tunnels by extracting
+              public URLs, emailing them to you, and auto-restarting sessions
+              before they expire.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">.NET 8.0</span>
+              <span class="tag">C#</span>
+              <span class="tag">CLI Automation</span>
+              <span class="tag">MIT License</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>TurboazScraper</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              A .NET 8 Selenium-based scraper for turbo.az that monitors new
+              listings, applies custom filters, and sends instant alerts to
+              Discord with SQLite deduplication and Docker support.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">.NET 8</span>
+              <span class="tag">C#</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Docker</span>
+              <span class="tag">MIT License</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>NaviFile</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              A web-based file navigation tool built with Node.js and Express.js
+              that provides an interface to browse and manage files on Linux
+              systems.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Baudot-Code</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Baudot Code Encoder/Decoder with 16-Bit Word Packing
+              implementation in JavaScript.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Encoding</span>
+              <span class="tag">Algorithms</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>HTTPServer</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Lightweight custom HTTP server implementation engineered in C# for
+              low-level protocol handling.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">C#</span>
+              <span class="tag">HTTP</span>
+              <span class="tag">Networking</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>WIN_Keylogger</h3>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
+              Windows input hook testing tool developed in C# for low-level OS
+              event auditing and system hooks.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">C#</span>
+              <span class="tag">Windows API</span>
+              <span class="tag">Systems</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem">
+          <div class="card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+              "
+            >
+              <h3>IT Project Manager — VERTUS Engineering Co MMC</h3>
+              <span style="color: #79c0ff; font-size: 0.9rem"
+                >May 2026 – Sep 2026</span
+              >
+            </div>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-top: 0.5rem">
+              Independently managed company Linux server environments, web
+              applications, network infrastructure, and DNS configurations.
+            </p>
+          </div>
+
+          <div class="card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+              "
+            >
+              <h3>
+                Software Developer — Ministry of Digital Development and
+                Transport
+              </h3>
+              <span style="color: #79c0ff; font-size: 0.9rem"
+                >Oct 2024 – May 2026</span
+              >
+            </div>
+            <p style="font-size: 0.9rem; color: #8b949e; margin-top: 0.5rem">
+              Developed RESTful APIs, maintained database schemas, and supported
+              backend microservice development for digital government services.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="life">
+        <h2 class="section-title">Off the Clock</h2>
+        <p class="term-hint">
+          Workouts, tinkering, tea and coffee runs, fishing trips, hikes in the
+          fog, road time, the odd build log. Drag or scroll the strip, click a
+          frame to open it.
+        </p>
+        <div class="filmstrip" id="filmstrip" tabindex="0"></div>
+      </section>
+
+      <div class="lightbox" id="lightbox">
+        <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+        <div class="lightbox-inner">
+          <div class="lightbox-img-wrap">
+            <img id="lbImg" src="" alt="" />
+          </div>
+          <p class="lightbox-caption" id="lbCaption"></p>
+          <p class="lightbox-counter" id="lbCounter"></p>
+        </div>
+        <div class="lightbox-controls">
+          <button class="lb-btn" id="lbPrev" aria-label="Previous">‹</button>
+          <button class="lb-btn" id="lbNext" aria-label="Next">›</button>
+        </div>
+      </div>
+
+      <section id="terminal">
+        <h2 class="section-title">Try the shell</h2>
+        <p class="term-hint">
+          Real navigation over a mock filesystem of this site's content. Type
+          <kbd>help</kbd> to see what's available, <kbd>ls</kbd> and
+          <kbd>cd</kbd> to move around, <kbd>cat</kbd> to read a file, and use
+          <kbd>&uarr;</kbd> / <kbd>&darr;</kbd> for command history.
+        </p>
+        <div class="terminal" id="terminal">
+          <div class="term-titlebar">
+            <span class="term-dot red"></span>
+            <span class="term-dot yellow"></span>
+            <span class="term-dot green"></span>
+            <span class="term-titletext">burhanaddin@dev: ~</span>
+          </div>
+          <div class="term-body" id="term-body">
+            <div class="term-line term-out" id="term-boot"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>&copy; 2026 Burhanaddin Mirsadizada.</p>
+      </footer>
+    </main>
+
+    <script>
+      const PHOTOS = [
+        {
+          file: "pc-build.jpeg",
+          title: "new-rig-unboxing",
+          caption:
+            "Fresh parts on the counter — ASRock A320M board, Gigabyte GPU, Zalman PSU, T-Force RAM. Half the fun is the unboxing.",
+        },
+        {
+          file: "foggy-lake.jpeg",
+          title: "fog-over-the-lake",
+          caption: "Fog rolling over a mountain lake, water like glass.",
+        },
+        {
+          file: "foggy-forest.jpeg",
+          title: "into-the-fog",
+          caption:
+            "Deep in the fog on a hike — hard to beat this kind of quiet.",
+        },
+        {
+          file: "bridge-park.jpeg",
+          title: "park-bridge",
+          caption:
+            "Being a tourist for a day, crossing a little wooden bridge.",
+        },
+        {
+          file: "fishing.jpeg",
+          title: "rod-on-the-rocks",
+          caption: "Rod set up on the rocks, waiting for a bite.",
+        },
+        {
+          file: "fireworks.jpeg",
+          title: "fireworks-from-the-balcony",
+          caption:
+            "New Year fireworks over the city, watched from the balcony.",
+        },
+        {
+          file: "christmas-tree.jpeg",
+          title: "holiday-season",
+          caption:
+            "Holiday season — the tree and the nutcracker on guard duty.",
+        },
+        {
+          file: "gazebo-waterfall.jpeg",
+          title: "gazebo-and-waterfall",
+          caption:
+            "A gazebo over a small waterfall, out exploring somewhere green.",
+        },
+        {
+          file: "hillside-walk.jpeg",
+          title: "mid-hike",
+          caption:
+            "Caught mid-stride on a hike, headphones on, jacket in hand.",
+        },
+        {
+          file: "office-coding.jpeg",
+          title: "heads-down",
+          caption:
+            "Heads down at the desk — this is where the actual work happens.",
+        },
+        {
+          file: "mountain-portrait.jpeg",
+          title: "under-the-cliffs",
+          caption: "Taking a break from the trail, standing under the cliffs.",
+        },
+      ];
+
+      (function () {
+        const strip = document.getElementById("filmstrip");
+        const lightbox = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lbImg");
+        const lbCaption = document.getElementById("lbCaption");
+        const lbCounter = document.getElementById("lbCounter");
+        let current = 0;
+
+        function pad(n) {
+          return String(n + 1).padStart(2, "0");
+        }
+
+        PHOTOS.forEach((photo, i) => {
+          const frame = document.createElement("div");
+          frame.className = "frame";
+          frame.tabIndex = 0;
+          frame.innerHTML =
+            '<div class="frame-sprockets"><span></span><span></span><span></span><span></span><span></span><span></span></div>' +
+            '<div class="frame-img-wrap"><img src="photos/' +
+            photo.file +
+            '" alt="' +
+            photo.title +
+            '" loading="lazy" /></div>' +
+            '<div class="frame-meta"><span class="fnum">frame_' +
+            pad(i) +
+            "</span><span>" +
+            photo.title +
+            "</span></div>";
+          frame.addEventListener("click", () => openLightbox(i));
+          frame.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openLightbox(i);
+            }
+          });
+          strip.appendChild(frame);
+        });
+
+        function openLightbox(i) {
+          current = i;
+          renderLightbox();
+          lightbox.classList.add("open");
+        }
+
+        function renderLightbox() {
+          const photo = PHOTOS[current];
+          lbImg.src = "photos/" + photo.file;
+          lbImg.alt = photo.title;
+          lbCaption.textContent = photo.caption;
+          lbCounter.textContent = pad(current) + " / " + pad(PHOTOS.length - 1);
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove("open");
+        }
+
+        function step(delta) {
+          current = (current + delta + PHOTOS.length) % PHOTOS.length;
+          renderLightbox();
+        }
+
+        document
+          .getElementById("lbClose")
+          .addEventListener("click", closeLightbox);
+        document
+          .getElementById("lbPrev")
+          .addEventListener("click", () => step(-1));
+        document
+          .getElementById("lbNext")
+          .addEventListener("click", () => step(1));
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (!lightbox.classList.contains("open")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") step(-1);
+          if (e.key === "ArrowRight") step(1);
+        });
+
+        window.PORTFOLIO_OPEN_LIGHTBOX = openLightbox;
+      })();
+
+      (function () {
+        const lifeChildren = {};
+        PHOTOS.forEach((photo) => {
+          const key = photo.title + ".jpg";
+          lifeChildren[key] = {
+            type: "file",
+            content: photo.caption + "\n(run: open life/" + photo.title + ")",
+            lightboxIndex: PHOTOS.findIndex((p) => p.title === photo.title),
+          };
+        });
+
+        const fs = {
+          type: "dir",
+          children: {
+            "about.txt": {
+              type: "file",
+              content:
+                "Software Engineer with a focus on Node.js, .NET, and Python.\n" +
+                "Interested in low-level architecture, distributed systems, and\n" +
+                "keeping production infrastructure boring and reliable.\n" +
+                "Currently: IT Project Manager at VERTUS Engineering Co MMC.\n" +
+                "Previously: Software Developer at the Ministry of Digital\n" +
+                "Development and Transport (MDDT), Azerbaijan.\n\n" +
+                "Off the clock: working out, tinkering with computers, and\n" +
+                "socializing over tea or coffee. Into fishing, biking, driving,\n" +
+                "go-karting, billiards, gaming, and travel — always up for a\n" +
+                "new activity. See ~/life for photos.",
+            },
+            "contact.txt": {
+              type: "file",
+              content:
+                "github   github.com/Burhanaddinzm\n" +
+                "email    burhaneddinmirsedizade@gmail.com\n" +
+                "open to backend / infra / platform engineering roles",
+            },
+            skills: {
+              type: "dir",
+              children: {
+                "backend.txt": {
+                  type: "file",
+                  content:
+                    "Node.js, Express.js, .NET / C#, ASP.NET Core MVC,\n" +
+                    "FastAPI (Python), PHP / Laravel",
+                },
+                "databases.txt": {
+                  type: "file",
+                  content: "PostgreSQL, MongoDB, MSSQL, SQLite, Prisma ORM",
+                },
+                "devops.txt": {
+                  type: "file",
+                  content:
+                    "Linux server administration, Docker, Docker Compose,\n" +
+                    "Nginx reverse proxy, Dnsmasq, CI/CD workflows",
+                },
+                "selfhosted.txt": {
+                  type: "file",
+                  content:
+                    "Jellyfin, Open WebUI, Planka, Tailscale mesh VPN,\n" +
+                    "local DNS routing, Ollama local LLMs, virt-manager / QEMU",
+                },
+              },
+            },
+            infrastructure: {
+              type: "dir",
+              children: {
+                "containerized-stack.txt": {
+                  type: "file",
+                  content:
+                    "Self-hosted services on Docker + Docker Compose: isolated\n" +
+                    "microservices, persistent volume mounts, automated updates.",
+                },
+                "jellyfin-encoding.txt": {
+                  type: "file",
+                  content:
+                    "Jellyfin media server paired with custom transcode scripts\n" +
+                    "and a distributed node-based encoding cluster (bash agents\n" +
+                    "across two Linux boxes + an Android phone over Termux) for\n" +
+                    "broad device compatibility. Coordinated via a Node/Express\n" +
+                    "server with pull-based job distribution and a live dashboard.",
+                },
+                "openwebui.txt": {
+                  type: "file",
+                  content:
+                    "Open WebUI backed by Ollama for a private, network-wide\n" +
+                    "AI chat interface with custom model routing.",
+                },
+                "planka.txt": {
+                  type: "file",
+                  content:
+                    "Self-hosted Planka for agile task tracking: access control,\n" +
+                    "board management, PostgreSQL-backed persistence.",
+                },
+                "dnsmasq.txt": {
+                  type: "file",
+                  content:
+                    "Local DNS resolution and DHCP via Dnsmasq: custom domains,\n" +
+                    "LAN overrides, service discovery.",
+                },
+                "nginx.txt": {
+                  type: "file",
+                  content:
+                    "Nginx as reverse proxy: SSL/TLS automation, routing,\n" +
+                    "rate limiting, domain forwarding across local and cloud.",
+                },
+              },
+            },
+            projects: {
+              type: "dir",
+              children: {
+                maxmod: {
+                  type: "dir",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "Maxmod — E-Commerce Platform\n" +
+                        "6-month capstone at Code Academy Azerbaijan (High Honor\n" +
+                        "Diploma). ASP.NET Core MVC, dependency injection across\n" +
+                        "vendor management, cart, order processing, Braintree\n" +
+                        "payments, and background hosted services.",
+                    },
+                  },
+                },
+                exposemailbot: {
+                  type: "dir",
+                  url: "https://github.com/Burhanaddinzm/ExposeMailbot",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "ExposeMailbot\n" +
+                        ".NET 8.0 utility that automates expose CLI tunnels: pulls\n" +
+                        "the public URL, emails it, and auto-restarts the session\n" +
+                        "before it expires. MIT licensed.\n" +
+                        "url: https://github.com/Burhanaddinzm/ExposeMailbot",
+                    },
+                  },
+                },
+                turbazscraper: {
+                  type: "dir",
+                  url: "https://github.com/Burhanaddinzm/TurboazScraper",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "TurboazScraper\n" +
+                        ".NET 8 + Selenium scraper for turbo.az. Watches new\n" +
+                        "listings, applies filters, alerts to Discord, dedupes\n" +
+                        "with SQLite, ships in Docker. MIT licensed.\n" +
+                        "url: https://github.com/Burhanaddinzm/TurboazScraper",
+                    },
+                  },
+                },
+                navifile: {
+                  type: "dir",
+                  url: "https://github.com/Burhanaddinzm/NaviFile",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "NaviFile\n" +
+                        "Web-based file navigation tool on Node.js + Express.js\n" +
+                        "for browsing and managing files on Linux systems.\n" +
+                        "url: https://github.com/Burhanaddinzm/NaviFile",
+                    },
+                  },
+                },
+                "baudot-code": {
+                  type: "dir",
+                  url: "https://github.com/Burhanaddinzm/Baudot-Code",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "Baudot-Code\n" +
+                        "Baudot code encoder/decoder with 16-bit word packing,\n" +
+                        "in JavaScript.\n" +
+                        "url: https://github.com/Burhanaddinzm/Baudot-Code",
+                    },
+                  },
+                },
+                httpserver: {
+                  type: "dir",
+                  url: "https://github.com/Burhanaddinzm/HTTPServer",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "HTTPServer\n" +
+                        "Lightweight custom HTTP server in C# for low-level\n" +
+                        "protocol handling.\n" +
+                        "url: https://github.com/Burhanaddinzm/HTTPServer",
+                    },
+                  },
+                },
+                win_keylogger: {
+                  type: "dir",
+                  url: "https://github.com/Burhanaddinzm/WIN_Keylogger",
+                  children: {
+                    "README.md": {
+                      type: "file",
+                      content:
+                        "WIN_Keylogger\n" +
+                        "Windows input hook testing tool in C# for low-level OS\n" +
+                        "event auditing and system hooks.\n" +
+                        "url: https://github.com/Burhanaddinzm/WIN_Keylogger",
+                    },
+                  },
+                },
+              },
+            },
+            experience: {
+              type: "dir",
+              children: {
+                "vertus.txt": {
+                  type: "file",
+                  content:
+                    "IT Project Manager — VERTUS Engineering Co MMC\n" +
+                    "May 2026 – Sep 2026\n" +
+                    "Independently managed Linux server environments, web\n" +
+                    "applications, network infrastructure, and DNS.",
+                },
+                "mddt.txt": {
+                  type: "file",
+                  content:
+                    "Software Developer — Ministry of Digital Development\n" +
+                    "and Transport\n" +
+                    "Oct 2024 – May 2026\n" +
+                    "Built RESTful APIs, maintained database schemas, supported\n" +
+                    "backend microservices for digital government services.",
+                },
+              },
+            },
+            life: {
+              type: "dir",
+              children: lifeChildren,
+            },
+          },
+        };
+
+        const root = fs;
+        let cwd = [];
+        const history = [];
+        let historyIndex = -1;
+
+        const body = document.getElementById("term-body");
+        const boot = document.getElementById("term-boot");
+
+        function nodeAt(pathArr) {
+          let node = root;
+          for (const seg of pathArr) {
+            if (!node.children || !node.children[seg]) return null;
+            node = node.children[seg];
+          }
+          return node;
+        }
+
+        function resolve(target) {
+          if (!target || target === "~") return [];
+          let parts = target.split("/").filter(Boolean);
+          let base =
+            target.startsWith("~") || target.startsWith("/") ? [] : cwd.slice();
+          if (target.startsWith("~"))
+            parts = target.slice(1).split("/").filter(Boolean);
+          for (const part of parts) {
+            if (part === ".") continue;
+            if (part === "..") {
+              base.pop();
+            } else {
+              base.push(part);
+            }
+          }
+          return base;
+        }
+
+        function pathString(arr) {
+          return "~" + (arr.length ? "/" + arr.join("/") : "");
+        }
+
+        function escapeHtml(str) {
+          return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        }
+
+        function printLine(html, cls) {
+          const div = document.createElement("div");
+          div.className = "term-line " + (cls || "term-out");
+          div.innerHTML = html;
+          body.appendChild(div);
+        }
+
+        function printPromptEcho(cmd) {
+          printLine(
+            '<span class="term-user">burhanaddin</span><span class="term-sep">@</span><span class="term-user">dev</span><span class="term-sep">:</span><span class="term-path">' +
+              escapeHtml(pathString(cwd)) +
+              '</span><span class="term-sep">$</span> ' +
+              escapeHtml(cmd),
+            "term-out",
+          );
+        }
+
+        function scrollBottom() {
+          body.scrollTop = body.scrollHeight;
+        }
+
+        function listDir(node) {
+          const names = Object.keys(node.children).sort((a, b) => {
+            const aDir = node.children[a].type === "dir";
+            const bDir = node.children[b].type === "dir";
+            if (aDir !== bDir) return aDir ? -1 : 1;
+            return a.localeCompare(b);
+          });
+          return names
+            .map((name) => {
+              const child = node.children[name];
+              const isDir = child.type === "dir";
+              return (
+                '<span class="' +
+                (isDir ? "term-dir" : "term-file") +
+                '">' +
+                escapeHtml(name) +
+                (isDir ? "/" : "") +
+                "</span>"
+              );
+            })
+            .join("  ");
+        }
+
+        function treeLines(node, prefix, out) {
+          const names = Object.keys(node.children).sort();
+          names.forEach((name, i) => {
+            const child = node.children[name];
+            const isLast = i === names.length - 1;
+            const branch = isLast ? "└── " : "├── ";
+            const isDir = child.type === "dir";
+            out.push(
+              prefix +
+                branch +
+                '<span class="' +
+                (isDir ? "term-dir" : "term-file") +
+                '">' +
+                escapeHtml(name) +
+                (isDir ? "/" : "") +
+                "</span>",
+            );
+            if (isDir) {
+              treeLines(child, prefix + (isLast ? "    " : "│   "), out);
+            }
+          });
+        }
+
+        const commands = {
+          help: function () {
+            printLine(
+              '<span class="term-heading">available commands</span>',
+              "term-out",
+            );
+            [
+              ["ls [path]", "list a directory"],
+              ["cd [path]", "change directory (.. / ~ / relative)"],
+              ["cat <file>", "print a file's contents"],
+              ["pwd", "print working directory"],
+              ["tree", "show the full tree from ~"],
+              ["open <project>", "open a project's GitHub repo"],
+              ["open life/<photo>", "pop a photo open in the viewer"],
+              ["whoami", "who's typing"],
+              ["neofetch", "system flex"],
+              ["clear", "clear the screen"],
+              ["history", "show command history"],
+            ].forEach(([cmd, desc]) => {
+              printLine(
+                '  <span class="term-dir">' +
+                  cmd.padEnd(16, " ") +
+                  "</span> " +
+                  escapeHtml(desc),
+                "term-out",
+              );
+            });
+          },
+          ls: function (args) {
+            const target = args[0] ? resolve(args[0]) : cwd;
+            const node = nodeAt(target);
+            if (!node) {
+              printLine(
+                "ls: cannot access '" +
+                  escapeHtml(args[0] || "") +
+                  "': no such directory",
+                "term-err",
+              );
+              return;
+            }
+            if (node.type === "file") {
+              printLine(escapeHtml(args[0]), "term-file");
+              return;
+            }
+            if (!Object.keys(node.children).length) {
+              printLine("", "term-out");
+              return;
+            }
+            printLine(listDir(node), "term-out");
+          },
+          cd: function (args) {
+            const target = args[0] ? resolve(args[0]) : [];
+            const node = nodeAt(target);
+            if (!node) {
+              printLine(
+                "cd: no such directory: " + escapeHtml(args[0] || ""),
+                "term-err",
+              );
+              return;
+            }
+            if (node.type !== "dir") {
+              printLine(
+                "cd: not a directory: " + escapeHtml(args[0]),
+                "term-err",
+              );
+              return;
+            }
+            cwd = target;
+          },
+          pwd: function () {
+            printLine(escapeHtml(pathString(cwd)), "term-out");
+          },
+          cat: function (args) {
+            if (!args[0]) {
+              printLine("usage: cat &lt;file&gt;", "term-err");
+              return;
+            }
+            const target = resolve(args[0]);
+            const node = nodeAt(target);
+            if (!node) {
+              printLine(
+                "cat: " + escapeHtml(args[0]) + ": no such file",
+                "term-err",
+              );
+              return;
+            }
+            if (node.type !== "file") {
+              printLine(
+                "cat: " + escapeHtml(args[0]) + ": is a directory",
+                "term-err",
+              );
+              return;
+            }
+            printLine(escapeHtml(node.content), "term-out");
+          },
+          tree: function () {
+            printLine('<span class="term-dir">~</span>', "term-out");
+            const out = [];
+            treeLines(root, "", out);
+            out.forEach((line) => printLine(line, "term-out"));
+          },
+          open: function (args) {
+            if (!args[0]) {
+              printLine(
+                "usage: open &lt;project&gt; | open life/&lt;photo&gt;",
+                "term-err",
+              );
+              return;
+            }
+            const lifeTarget = resolve(
+              args[0].startsWith("life/")
+                ? args[0]
+                : "life/" + args[0] + ".jpg",
+            );
+            const lifeNode = nodeAt(lifeTarget);
+            if (lifeNode && typeof lifeNode.lightboxIndex === "number") {
+              printLine("opening frame in viewer ...", "term-out");
+              document
+                .getElementById("life")
+                .scrollIntoView({ behavior: "smooth", block: "center" });
+              if (window.PORTFOLIO_OPEN_LIGHTBOX) {
+                window.PORTFOLIO_OPEN_LIGHTBOX(lifeNode.lightboxIndex);
+              }
+              return;
+            }
+            const target = resolve("projects/" + args[0]);
+            const node = nodeAt(target);
+            if (!node || node.type !== "dir" || !node.url) {
+              printLine(
+                "open: no linked repo or photo for '" +
+                  escapeHtml(args[0]) +
+                  "'",
+                "term-err",
+              );
+              return;
+            }
+            printLine("opening " + escapeHtml(node.url) + " ...", "term-out");
+            window.open(node.url, "_blank", "noopener,noreferrer");
+          },
+          whoami: function () {
+            printLine(
+              "burhanaddin — software & infrastructure engineer",
+              "term-out",
+            );
+          },
+          neofetch: function () {
+            const art = [
+              "     .--.      burhanaddin@dev",
+              "    |o_o |     -----------------",
+              "    |:_/ |     OS: Linux (self-hosted, obviously)",
+              "   //   \\ \\    Shell: browser-sim v1.0",
+              "  (|     | )   Stack: Node.js, .NET, PostgreSQL, Docker",
+              " /'\\_   _/`\\   Uptime: since Oct 2024",
+              " \\___)=(___/   Status: open to opportunities",
+            ];
+            art.forEach((line) => printLine(escapeHtml(line), "term-out"));
+          },
+          clear: function () {
+            body.innerHTML = "";
+          },
+          history: function () {
+            if (!history.length) {
+              printLine("(no history yet)", "term-muted");
+              return;
+            }
+            history.forEach((cmd, i) => {
+              printLine(
+                '<span class="term-muted">' +
+                  (i + 1) +
+                  "</span>  " +
+                  escapeHtml(cmd),
+                "term-out",
+              );
+            });
+          },
+        };
+
+        function run(raw) {
+          const cmd = raw.trim();
+          if (!cmd) return;
+          history.push(cmd);
+          historyIndex = history.length;
+          printPromptEcho(cmd);
+          const parts = cmd.split(/\s+/);
+          const name = parts[0];
+          const args = parts.slice(1);
+          if (name === "sudo") {
+            printLine(
+              "burhanaddin is not in the sudoers file. this incident will be reported.",
+              "term-err",
+            );
+          } else if (commands[name]) {
+            commands[name](args);
+          } else {
+            printLine(
+              escapeHtml(name) + ": command not found. try 'help'.",
+              "term-err",
+            );
+          }
+          scrollBottom();
+        }
+
+        function buildInputRow() {
+          const row = document.createElement("div");
+          row.className = "term-inputrow";
+          row.innerHTML =
+            '<span class="term-user">burhanaddin</span><span class="term-sep">@</span><span class="term-user">dev</span><span class="term-sep">:</span><span class="term-path">' +
+            escapeHtml(pathString(cwd)) +
+            '</span><span class="term-sep">$</span>';
+          const input = document.createElement("input");
+          input.type = "text";
+          input.autocomplete = "off";
+          input.spellcheck = false;
+          row.appendChild(input);
+          return { row, input };
+        }
+
+        let active = null;
+
+        function spawnPrompt() {
+          if (active) active.row.remove();
+          const { row, input } = buildInputRow();
+          body.appendChild(row);
+          active = { row, input };
+          input.focus();
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              const val = input.value;
+              input.disabled = true;
+              run(val);
+              spawnPrompt();
+            } else if (e.key === "ArrowUp") {
+              e.preventDefault();
+              if (historyIndex > 0) {
+                historyIndex--;
+                input.value = history[historyIndex];
+              }
+            } else if (e.key === "ArrowDown") {
+              e.preventDefault();
+              if (historyIndex < history.length - 1) {
+                historyIndex++;
+                input.value = history[historyIndex];
+              } else {
+                historyIndex = history.length;
+                input.value = "";
+              }
+            }
+          });
+          scrollBottom();
+        }
+
+        document.getElementById("terminal").addEventListener("click", () => {
+          if (active) active.input.focus();
+        });
+
+        boot.innerHTML =
+          "Welcome. This is a mock shell over the content on this page.<br>" +
+          'Type <span class="term-dir">help</span> to get started.';
+        spawnPrompt();
+      })();
+    </script>
+  </body>
+</html>
