@@ -799,8 +799,8 @@
             <h3>Maxmod (E-Commerce Platform)</h3>
             <p style="font-size: 0.9rem; color: #8b949e; margin-bottom: 0.8rem">
               Full-featured .NET Core MVC e-commerce application developed as a
-              6-month intensive capstone project at Code Academy Azerbaijan
-              (awarded High Honor Diploma). Implements modular architecture with
+              intensive capstone project at Code Academy Azerbaijan (awarded
+              High Honor Diploma). Implements modular architecture with
               Dependency Injection across vendor management, cart, order
               processing, Braintree payment integration, and background hosted
               services.
@@ -1260,15 +1260,17 @@
               children: {
                 maxmod: {
                   type: "dir",
+                  url: "https://github.com/Burhanaddinzm/Maxmod",
                   children: {
                     "README.md": {
                       type: "file",
                       content:
                         "Maxmod — E-Commerce Platform\n" +
-                        "6-month capstone at Code Academy Azerbaijan (High Honor\n" +
+                        "capstone at Code Academy Azerbaijan (High Honor\n" +
                         "Diploma). ASP.NET Core MVC, dependency injection across\n" +
                         "vendor management, cart, order processing, Braintree\n" +
-                        "payments, and background hosted services.",
+                        "payments, and background hosted services.\n" +
+                        "url: https://github.com/Burhanaddinzm/Maxmod",
                     },
                   },
                 },
@@ -1721,26 +1723,35 @@
 
         let active = null;
 
-        function spawnPrompt() {
+        function spawnPrompt(shouldFocus = false) {
           if (active) active.row.remove();
+
           const { row, input } = buildInputRow();
           body.appendChild(row);
           active = { row, input };
-          input.focus();
+
+          if (shouldFocus) {
+            input.focus();
+          }
+
           input.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
               const val = input.value;
               input.disabled = true;
+
               run(val);
-              spawnPrompt();
+
+              spawnPrompt(true);
             } else if (e.key === "ArrowUp") {
               e.preventDefault();
+
               if (historyIndex > 0) {
                 historyIndex--;
                 input.value = history[historyIndex];
               }
             } else if (e.key === "ArrowDown") {
               e.preventDefault();
+
               if (historyIndex < history.length - 1) {
                 historyIndex++;
                 input.value = history[historyIndex];
@@ -1750,6 +1761,7 @@
               }
             }
           });
+
           scrollBottom();
         }
 
